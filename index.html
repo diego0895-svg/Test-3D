@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Escultura 3D</title>
+    <!-- Carga del componente <model-viewer> -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+      :root { color-scheme: dark light; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        background: #0f1115;
+        color: #e6e6e6;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        display: grid;
+        place-items: center;
+      }
+      .wrap {
+        width: min(1024px, 100vw);
+        height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+      header, footer { padding: 12px 16px; opacity: .9; }
+      header h1 { font-size: 16px; font-weight: 600; margin: 0; letter-spacing: .2px; }
+      footer { font-size: 12px; }
+      model-viewer {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(60% 60% at 50% 40%, #1b1f2a 0%, #0f1115 60%);
+        border: 0;
+      }
+      .hint { font-size: 12px; opacity: .75; }
+      a { color: #a2d2ff; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Escultura 3D (rotar con un dedo · zoom con pellizco)</h1>
+      </header>
+
+      <model-viewer
+        src="escultura.glb"
+        alt="Escultura 3D"
+        camera-controls
+        auto-rotate
+        touch-action="pan-y"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        exposure="1"
+        environment-image="neutral"
+        shadow-intensity="0.4">
+      </model-viewer>
+
+      <footer>
+        <div class="hint">Si se ve oscuro, toca el botón de AR o rota para ajustar la luz. Compatibilidad: iOS 12+ (Quick Look), Android (Scene Viewer) y navegadores modernos.</div>
+      </footer>
+    </div>
+  </body>
+</html>
